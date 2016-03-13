@@ -1,0 +1,16 @@
+node_modules
+public
+.tmp
+.sass-cache
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
+npm-debug.log
+client
+bower.json
+e2e
+Gruntfile.js
+karma.conf.js
+mocha.conf.js
+protractor.conf.js
