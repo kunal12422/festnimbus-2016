@@ -3,15 +3,24 @@
 var mongoose =require('mongoose');
 var Schema =mongoose.Schema;
 
-var eventschema = new Schema(
-  {
-    Ename :String,
-    Dname : String,
-    shortD : String,
-    longD :  String,
-    Contact : Number
-  }
-);
+const getTags = function(tags){
+  return tags.join(',');
+};
+
+const setTags = function(tags){
+  return tags.split(',');
+};
+
+var eventschema = new Schema({
+  Ename: String,
+  Dname: String,
+  Tname:String,
+  shortD: String,
+  longD: String,
+  Contact: Number,
+  rules:{ type: [], get: getTags, set: setTags }
+
+});
 
 eventschema
   .virtual('details')

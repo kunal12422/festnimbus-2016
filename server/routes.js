@@ -14,6 +14,9 @@ module.exports  = function(app) {
   app.use('/api/user', require('./api/user'));
   app.use('/auth', require('./auth'));
 
+
+  // teams routes
+  app.use('/api/teams',require('./api/teams'));
   // events routes
   app.use('/api/events',require('./api/events'));
 

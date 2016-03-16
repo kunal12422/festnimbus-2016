@@ -52,9 +52,9 @@ var transporter = nodemailer.createTransport({
 
 
   exports.createUser = function(req, res, next){
-	  
+
   User.find({'email': req.body.email}, function(err, user){
-	  console.log(req.body);
+
     if(user.length)  {
       res.json({'message': 'users email already exist'});
     }else {
@@ -68,12 +68,14 @@ var transporter = nodemailer.createTransport({
        // var token = jwt.sign({_id: user._id},'sandy', { expiresIn: 1200 });
 
         res.json({
-			'status': 'User Created',
+
+			    'status': 'User Created',
            'data':'Registered Successfully'
+
            });
         //store userId on request for next middleware
         res.userId = user._id;
-        console.log('dcr');
+
         next();
       });
     }
@@ -85,7 +87,9 @@ var transporter = nodemailer.createTransport({
 
 
 exports.profile = function(req, res, next){
+
   var userId = req.user._id;
+
   User.findOne({
     _id: userId
   }, '-salt -hashedPassword', function(err, user) { // don't give out the password or salt
@@ -94,10 +98,10 @@ exports.profile = function(req, res, next){
 
     var body = {
       'status':'ok',
-      data:user.profile 
+      data:user.profile
       };
     res.setHeader('Cache-Control', 'public, max-age=86400');
-  
+
     res.json(body);
   })
 };
