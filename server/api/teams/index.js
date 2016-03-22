@@ -7,9 +7,9 @@ var team = require('./teams.model.js');
 
 var router = express.Router();
 
-router.get('/:team',controller.team_details);
+router.get('/:team', controller.team_details);
 router.post('/save', controller.create_details);
 router.get('/:team/:event', controller.team_event_details);
 
 
-module.exports =router;
+module.exports = router;

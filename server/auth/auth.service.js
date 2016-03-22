@@ -67,7 +67,7 @@ function appendUser() {
   // Attach user to request
     .use(function(req, res, next) {
       validateJwt(req, res, function(val) {
-        console.log('val === '+ val);
+
         if(_.isUndefined(val)) {
           User.findById(req.user._id, function(err, user) {
             if(err) {
@@ -109,7 +109,7 @@ function addAuthHeaderFromCookie() {
  * Returns a jwt token signed by the app secret
  */
 function signToken(id) {
-  return jwt.sign({ _id: id },process.env.SESSION_SECRET, { expiresIn: 2000 });
+  return jwt.sign({ _id: id },process.env.SESSION_SECRET, { expiresIn: 86400 });
 }
 //
 /**

@@ -11,7 +11,7 @@ exports.setup = function (User, config) {
       User.findOne({
         email: email.toLowerCase()
       }, function(err, user) {
-        if (err) return done(err);
+       // if (err) return done(err);
 
         if (!user) {
           return done(null, false, { data: 'This email is not registered.', status:'OK' });
@@ -19,7 +19,7 @@ exports.setup = function (User, config) {
         if (!user.authenticate(password)) {
           return done(null, false, { data: 'This password is not correct.', status:'OK' });
         }
-        
+
 
         return done(null, user);
       });

@@ -18,9 +18,12 @@ var apicache = require('apicache').options({debug:true}).middleware;
 
 
 router.get('/',controller.index);
-router.post('/register', controller.createUser);
+router.post('/', controller.createUser);
+router.put('/:event',auth.isAuthenticated(), controller.update_event_list);
 router.get('/profile',auth.isAuthenticated(),apicache('30 minutes'), controller.profile);
-router.get('/lb',controller.leaderboard);
+router.get('/glb',controller.gleaderboard);
+router.get('/slb',controller.sleaderboard);
+
 
 
 

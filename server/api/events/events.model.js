@@ -4,11 +4,11 @@ var mongoose =require('mongoose');
 var Schema =mongoose.Schema;
 
 const getTags = function(tags){
-  return tags.join(',');
+  return tags.join(';');
 };
 
 const setTags = function(tags){
-  return tags.split(',');
+  return tags.split(';');
 };
 
 var eventschema = new Schema({

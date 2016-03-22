@@ -11,13 +11,13 @@ var userSchema = new mongoose.Schema({
   name:String,
   hashedPassword: String,
   salt: String,
-  mobile:Number,
-  rollno:Number,
+  rollno:{ type: String, default: 0 },
   verified:{type:Boolean,default:false},
   unique:String,
   nitian:Boolean,
-  gold_coins:Number
-
+  gold_coins:{ type: Number, default: 0 },
+  silver_coins:{ type: Number, default: 0},
+  events_register:[String]
 
 });
 
@@ -46,7 +46,6 @@ userSchema
       'email':this.email,
       'role': this.role,
       'rollno':this.rollno
-      //'facebookPicture': this.facebook.picture
     };
 
   });

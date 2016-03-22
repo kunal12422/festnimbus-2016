@@ -5,11 +5,11 @@ var Schema =mongoose.Schema;
 
 
 const getTags = function(tags){
-  return tags.join(',');
+  return tags.join(';');
 };
 
 const setTags = function(tags){
-  return tags.split(',');
+  return tags.split(';');
 };
 
 var teamSchema = new Schema({
