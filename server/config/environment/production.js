@@ -24,8 +24,8 @@ module.exports = {
 
   mongo: {
     scheme: "mongodb",
-    host: "sandydcr:9418687388@ds013848.mongolab.com:13848",
-    databaseName: "fest-nimbus"
+    host: "kunal12422:changeit@ds021999.mlab.com:21999",
+    databaseName: "festnimbus"
 
   }
 };

@@ -16,9 +16,15 @@ exports.setup = function (User, config) {
         if (!user) {
           return done(null, false, { data: 'This email is not registered.', status:'OK' });
         }
+
+        if(user.verified === false){
+          return done(null, false, { data: 'Verify Email First', status:'OK' });
+        }
+
         if (!user.authenticate(password)) {
           return done(null, false, { data: 'This password is not correct.', status:'OK' });
         }
+
 
 
         return done(null, user);

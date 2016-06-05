@@ -11,6 +11,7 @@ const setTags = function(tags){
   return tags.split(';');
 };
 
+
 var eventschema = new Schema({
   Ename: String,
   Dname: String,
@@ -18,32 +19,11 @@ var eventschema = new Schema({
   shortD: String,
   longD: String,
   Contact: Number,
-  rules:{ type: [], get: getTags, set: setTags }
+  rules:{ type: [], get: getTags, set: setTags },
+  link: String
 
 });
 
-eventschema
-  .virtual('details')
-  .get(function(){
-  return {
-    'Ename':this.Ename,
-    'Dname':this.Dname
-};
-});
-
-
-eventschema
-  .virtual('total_details')
-  .get(function(){
-  return {
-    'Ename':this.Ename,
-    'Dname': this.DName,
-    'shortD':this.shortD,
-    'longD':this.longD,
-    'Contact':this.Contact
-
-  }
-});
 
 
 module.exports =mongoose.model('events',eventschema);

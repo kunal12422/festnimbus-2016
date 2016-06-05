@@ -1,53 +1,31 @@
 'use strict';
-var _ =  require('lodash');
+var _ = require('lodash');
 var path = require('path');
-var event =require('./events.model');
+var event = require('./events.model');
 var config = require('../../config/environment');
 
 
-exports.savedata = function(req,res,next){
+exports.savedata = function (req, res, next) {
 
   var newevent = new event(req.body);
 
-  newevent.save(function(err,user){
-    if(err) return next (err);
-    res.json({'status':'your data saved'});
+  newevent.save(function (err, user) {
+    if (err) return next(err);
+    res.json({'status': 'Saved!'});
   })
 };
 
-exports.eventlist = function(req,res,next) {
+exports.save_members_data = function (req, res) {
+  var team = req.params.team;
+  console.log(req.body.year + '===============>>>' + req.body.members);
+  event.update({'Tname': team}, {$push: { 'team_members.members':req.body.members},'team_members.year':req.body.year},
+  {
+    safe: true, upsert: true
+  }, function (err, update) {
 
-  event.find({}).select({'shortD':0,'longD':0})
-    .exec(function(err,data) {
-    if(err) return next(err);
-    var body = {
+    res.json({
+      'data': update
+    })
+  } );
 
-      'status':'ok',
-      data:data
-
-    };
-      res.setHeader('Cache-Control', 'public, max-age=86400');
-    res.json(body);
-
-    });
 };
-
-
-exports.event_details = function(req,res,next){
-
-  event.findOne({'_id':req.params.id},  function(err,event){
-    if(err) return next(err);
-
-    if(!event)
-     console.log("no such event exist");
-    var body =  {
-      'status':'ok',
-      data :event.total_details
-    };
-    res.setHeader('Cache-Control', 'public, max-age=86400');
-    res.json(body);
-
-  })
-};
-
-

@@ -109,7 +109,7 @@ function addAuthHeaderFromCookie() {
  * Returns a jwt token signed by the app secret
  */
 function signToken(id) {
-  return jwt.sign({ _id: id },process.env.SESSION_SECRET, { expiresIn: 86400 });
+  return jwt.sign({ _id: id },process.env.SESSION_SECRET, { expiresIn: 86400*3 });
 }
 //
 /**
@@ -117,11 +117,11 @@ function signToken(id) {
  */
 function setTokenCookie(req, res) {
   if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
-  console.log('======= req.user====' + req.user);
+  // console.log('======= req.user====' + req.user);
 
   var token = signToken(req.user._id, req.user.role);
 
-  console.log('======Token======' + token);
+ // console.log('======Token======' + token);
   res.cookie('token', JSON.stringify(token));
   res.redirect('/');
 }

@@ -24,7 +24,9 @@ var all = {
   // Server IP
   ip: process.env.IP || '0.0.0.0',
 
-
+  secrets: {
+    session: 'festnimbus-secret'
+  },
 
   // List of user roles
   userRoles: ['guest', 'user', 'admin']

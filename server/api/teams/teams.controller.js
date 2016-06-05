@@ -7,10 +7,11 @@ var event = require('../events/events.model.js');
  * @param res
  */
 exports.team_details = function(req, res){
-  // console.log(req.params.team);
 
   team.find({'teamName': req.params.team}, function(err, data){
 
+
+    res.setHeader('Cache-Control', 'public, max-age=7200');
     res.json({
       'data': data,
       'status':'Events Received of requested team'
@@ -26,7 +27,7 @@ exports.create_details = function(req, res){
   newTeam.save(function(err, team){
     res.json({
       'data':team,
-      'status':'Success'
+      'status':'Success!'
     });
   });
 };
@@ -39,11 +40,13 @@ exports.create_details = function(req, res){
 
 exports.team_event_details = function(req, res){
 
+  res.setHeader('Cache-Control', 'public, max-age=7200');
   event.find({'Ename': req.params.event}, function(err, event){
+
 
     res.json({
       'data':event,
-      'status':'Success! Received all detail of team event'
+      'status':'Success!'
     })
   });
 

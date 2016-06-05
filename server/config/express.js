@@ -15,8 +15,10 @@ var path = require('path');
 var config = require('./environment');
 var mongoose = require('mongoose');
 var passport = require('passport');
-
-
+ //var lusca = require('lusca');
+// var session = require('express-session');
+// var connectMongo = require('connect-mongo');
+// const MongoStore = connectMongo(session);
 module.exports = function(app) {
   var env = app.get('env');
 
@@ -27,28 +29,28 @@ module.exports = function(app) {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(methodOverride());
-  app.use(cookieParser()
-  );
+  app.use(cookieParser());
   app.use(passport.initialize());
 
-  //// Persist sessions with mongoStore / sequelizeStore
-  //// We need to enable sessions for passport-twitter because it's an
-  //// oauth 1.0 strategy, and Lusca depends on sessions
-  //app.use(session({
+  // // Persist sessions with mongoStore / sequelizeStore
+  // // We need to enable sessions for passport-twitter because it's an
+  // // oauth 1.0 strategy, and Lusca depends on sessions
+  // app.use(session({
   //  secret: config.secrets.session,
   //  saveUninitialized: true,
   //  resave: false,
-  //  store: new mongoStore({
+  //  store: new MongoStore({
   //    mongooseConnection: mongoose.connection,
-  //    db: 'coder-decoder2'
+  //    db: 'festnimbus'
   //  })
-  //}));
+  // }));
   //
-  ///**
+  // /**
   // * Lusca - express server security
   // * https://github.com/krakenjs/lusca
   // */
-  //if ('test' !== env) {
+  //
+  // if ('test' !== env) {
   //  app.use(lusca({
   //    csrf: {
   //      angular: true
@@ -61,7 +63,7 @@ module.exports = function(app) {
   //    },
   //    xssProtection: true
   //  }));
-  //}
+  // }
 
   app.set('appPath', path.join(config.root, 'client'));
 

@@ -9,22 +9,21 @@ var router = express.Router();
 
 var mandrill = require('node-mandrill')('owQ7XSkk5JPrEEITDL9K6g');
 
-//self
-var user =require('./user.model');
 
-//cache response of data
-var apicache = require('apicache').options({debug:true}).middleware;
+var user =require('./user.model');
 
 
 
 router.get('/',controller.index);
 router.post('/', controller.createUser);
+// /update-coins placed before /:event to not to get any conflict in routing
+router.put('/update-coins', auth.appendUser(), controller.update_coins);
 router.put('/:event',auth.isAuthenticated(), controller.update_event_list);
-router.get('/profile',auth.isAuthenticated(),apicache('30 minutes'), controller.profile);
+router.get('/profile',auth.isAuthenticated(), controller.profile);
 router.get('/glb',controller.gleaderboard);
 router.get('/slb',controller.sleaderboard);
-
-
+router.get('/verify/:rand', controller.verify);
+router.post('/update-admin',controller.update_admin_status);
 
 
 router.get('/test',function(req,res){

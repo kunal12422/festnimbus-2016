@@ -10,8 +10,7 @@ var event = require('./events.model.js');
 
 
 router.post('/save',controller.savedata);
-router.get('/eventlist',auth.isAuthenticated(),controller.eventlist);
-router.get('/event/:id',auth.isAuthenticated(),controller.event_details);
+
 
 /**
  * WEB ROUTES
