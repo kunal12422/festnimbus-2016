@@ -1,0 +1,30 @@
+
+<div class="dialog" style="display:block;">
+  <img src="../../../assets/images/btn-close-dialog.png" class="close" ng-click="vm.closeDialog()"/>
+  <div class="layer">
+    <img class="loader" src="../../../assets/images/loader.gif"/>
+
+    <div class="nimbus-events">
+
+      <div class="nimbus-events-image">
+        <img ng-src="../../../assets/images/{{vm.teamName}}.png" width="120px" height="120px">
+      </div>
+
+     <div class="nimbus-events-list" ng-scrollbars>
+        <md-content ng-repeat="event in vm.teamEvents" class="scrollable-list">
+
+            <md-button class="scrollable-list-section" ng-click="vm.showTabDialog($event,vm.teamName,event)" >
+              <a href="">{{ event }}</a>
+            </md-button>
+
+        </md-content>
+
+     </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<md-dialog class="loginBox md-whiteframe-z1">
+  <form name="nimbusAdminForm" id="nimbusAdminForm">
+    <md-toolbar>
+      <h2 class="md-toolbar-tools" style="color: white;"><span>Admin</span></h2>
+    </md-toolbar>
+    <md-content layout="column" class="md-padding">
+
+      <!--<md-input-container>-->
+        <!--<label>Email Addresses sepearted by semicolon (;)</label>-->
+        <!--<input type="text" ng-model="vm.user.emails" />-->
+      <!--</md-input-container>-->
+      <md-input-container>
+        <label>Rollno sepearted by semicolon (;)</label>
+        <input type="text" ng-model="vm.user.rollno" ng-required=""/>
+      </md-input-container>
+
+      <div layout-gt-sm="row">
+        <md-input-container>
+          <md-checkbox ng-model="vm.user.silverStatus" aria-label="Checkbox ">
+            Silver coins
+          </md-checkbox>
+        </md-input-container>
+        &nbsp;&nbsp; &nbsp;
+        <md-input-container ng-if="vm.user.silverStatus == true">
+          <label>Enter Silver coins:</label>
+          <input type="text" name="silver" ng-model="vm.user.silver" />
+
+
+        </md-input-container>
+
+      </div>
+
+
+      <div layout-gt-sm="row">
+        <md-input-container>
+          <md-checkbox ng-model="vm.user.goldStatus" aria-label="Checkbox ">
+            Gold Coins?
+          </md-checkbox>
+        </md-input-container>
+        &nbsp;&nbsp; &nbsp;
+        <md-input-container ng-if="vm.user.goldStatus == true">
+          <label>Enter Gold coins:</label>
+          <input type="text" name="gold" ng-model="vm.user.gold" ng-required="true"/>
+
+
+        </md-input-container>
+
+      </div>
+
+
+
+      <div layout="row" layout-align="center center" style="padding-top:20px;">
+        <md-button class="md-raised md-primary" ng-click="vm.submit(vm.user)"  ng-disabled="nimbusAdminForm.$invalid">Add</md-button>
+      </div>
+
+
+
+  </form>
+
+</md-dialog>
+
+

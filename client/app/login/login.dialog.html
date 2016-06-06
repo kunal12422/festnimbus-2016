@@ -1,0 +1,62 @@
+<md-dialog class="loginBox md-whiteframe-z1">
+  <form name="nimbusForm" id="nimbusForm">
+    <md-toolbar>
+      <h2 class="md-toolbar-tools" style="color: white;"><span>{{vm.topStatus}}</span></h2>
+    </md-toolbar>
+    <md-content layout="column" class="md-padding">
+
+      <md-input-container>
+        <label>EmailAddress</label>
+        <input type="email" ng-model="vm.user.email" ng-required="true" ng-pattern=""/>
+      </md-input-container>
+
+
+
+      <md-input-container>
+        <label>Password</label>
+        <input type="password" name="password" ng-model="vm.user.password" ng-required="true" ng-minlength="9"/>
+        <div ng-messages="nimbusForm.password.$error" ng-if="nimbusForm.password.$error.minlength">
+          <div ng-message="minlength">More than 8 characters!</div>
+        </div>
+      </md-input-container>
+
+
+      <md-input-container ng-if="vm.isRegistering">
+        <label>Name</label>
+        <input type="text" ng-model="vm.user.name" ng-required="true"/>
+      </md-input-container>
+
+
+
+      <div layout-gt-sm="row">
+        <md-input-container ng-if="vm.isRegistering">
+          <md-checkbox ng-model="vm.user.nitian" aria-label="Checkbox ">
+            Student of NITH?
+          </md-checkbox>
+        </md-input-container>
+        &nbsp;&nbsp; &nbsp;
+        <md-input-container ng-if="vm.isRegistering &&vm.user.nitian == true">
+          <label>Roll No.</label>
+          <input type="text" name="rollno" ng-model="vm.user.rollno" ng-required="true" ng-pattern="/^((1(4|5)MI5((0[1-9])|([1-5][0-9])|60))|(1(4|5)M[1-5]((0[1-9])|([1-5][0-9])|60))|(15MI4((0[1-9])|([1-5][0-9])|60))|(1[1-5][1-7]((0[1-9])|([1-8][0-9])|90|91|92|93|94))|(IIITU1(4|5)(1|2)((0[1-9])|([1-2][0-9])|30)))$/"/>
+
+          <div ng-messages="nimbusForm.rollno.$error" ng-if="nimbusForm.rollno.$error.pattern">
+            <div ng-message="pattern" >Enter Valid Roll No</div>
+          </div>
+        </md-input-container>
+
+
+      </div>
+
+
+      <div layout="row" layout-align="center center" style="padding-top:20px;">
+        <md-button class="md-raised md-primary" ng-click="vm.submit(vm.user)"  ng-disabled="nimbusForm.$invalid">Enter</md-button>
+        <div flex="flex"></div>
+        <md-button class="md-raised" ng-click="vm.wantsToRegister()">{{vm.bottomStatus}}</md-button>
+      </div>
+
+    </md-content>
+  </form>
+
+</md-dialog>
+
+

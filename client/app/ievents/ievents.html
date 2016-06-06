@@ -1,0 +1,43 @@
+
+<div class="dialog-iEvents" style="display:block;">
+  <div class="layer-iEvents">
+    <!--<img class="loader" src="../../assets/images/loader.gif"/>-->
+
+    <div class="nimbus-iEvents">
+
+      <div class="nimbus-iEvents-header">
+        <h4>ONLINE  EVENTS</h4>
+      </div>
+      <div class="nimbus-iEvents-list" ng-scrollbars>
+        <md-content  class="scrollable-list">
+
+          <md-button class="scrollable-list-section" href="#" ng-click="vm.checkLoginForEvent()" >
+
+            <a href="">BHRAM 4.0</a>
+
+            <br/>
+            <i style="color: white"> - MEDextrous</i>
+          </md-button>
+
+        </md-content>
+        <md-content ng-repeat="event in vm.iEvents" class="scrollable-list">
+
+          <md-button class="scrollable-list-section" ng-href="{{event.link}}">
+
+            <a target="_blank" ng-href="{{event.link}}">{{ event.name }}</a>
+
+            <br/>
+            <i style="color: white"> - {{event.team}}</i>
+          </md-button>
+
+        </md-content>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

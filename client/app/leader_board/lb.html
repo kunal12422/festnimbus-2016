@@ -1,0 +1,30 @@
+<md-dialog>
+  <md-toolbar style="background-color: rgb(44, 45, 48);">
+    <div class="md-toolbar-tools">
+      <!--<h2 class="md-toolbar-tools" style="color: white;"><span>{{vm.userName}}</span></h2>-->
+      <h2 class="md-toolbar-tools" style="color: white;"><span><i>LeaderBoard</i></span></h2>
+      <h2 class="md-toolbar-tools" style="color: white;">
+        <span>
+          <div class="gold-coin"></div>
+          <span>{{vm.userCoins.gold_coins}}</span>
+                  |
+          <span>{{vm.userCoins.silver_coins}}</span>
+           <div class="silver-coin"></div>
+        </span>
+      </h2>
+      <md-button class="md-raised md-hue-1" ng-click="vm.logout()">Logout</md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+
+    <md-content>
+      <kunal-table headers="vm.headers" content="vm.content" sortable="vm.sortable" count="vm.count"
+                   custom-class="vm.custom">
+
+      </kunal-table>
+
+
+    </md-content>
+
+  </md-dialog-content>
+</md-dialog>

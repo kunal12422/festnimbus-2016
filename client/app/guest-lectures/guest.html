@@ -1,0 +1,30 @@
+
+<div class="dialog-lecture" style="display:block;">
+  <div class="layer-lecture">
+    <!--<img class="loader" src="../../assets/images/loader.gif"/>-->
+
+    <div class="nimbus-lectures">
+
+      <div class="nimbus-lectures-header">
+        <h4>GUEST LECTURES</h4>
+      </div>
+      <div class="nimbus-lectures-list" ng-scrollbars>
+        <md-content ng-repeat="doc in vm.guestLectures" class="scrollable-list">
+
+          <md-button class="scrollable-list-section"  ui-sref="generator.guest.gallery-{{doc.number}}">
+            <a href="" >{{ doc.lecture }}</a>
+            <br/>
+            <i style="color: white"> - {{doc.author}}</i>
+          </md-button>
+
+        </md-content>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

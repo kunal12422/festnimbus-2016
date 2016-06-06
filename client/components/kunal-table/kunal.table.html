@@ -1,0 +1,28 @@
+<div class="lb-loading">
+
+</div>
+<table class="md-table">
+  <thead>
+  <tr class="md-table-headers-row">
+    <th ng-repeat="h in vm.headers" class="md-table-header">
+      <a href="" ng-if="vm.handleSort(h.field)" ng-click="reverse=!reverse;vm.order(h.field,reverse)">
+        {{h.name}}
+
+        <i ng-show="reverse && h.field == vm.predicate" class="material-icons">keyboard_arrow_up</i>
+        <i ng-show="!reverse && h.field == vm.predicate" class="material-icons">keyboard_arrow_down</i>
+      </a>
+      <a ng-if="!vm.handleSort(h.field)">{{h.name}}</a>
+    </th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="c in vm.content | filter:filters " class="md-table-content-row">
+      <td class="md-table-content">{{$index+1}}</td>
+      <td ng-repeat="h in vm.headers" ng-class="vm.customClass[h.field]" ng-if="c[h.field] || c[h.field] === 0" class="md-table-content">
+      {{ c[h.field]}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+

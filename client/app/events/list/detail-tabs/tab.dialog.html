@@ -1,0 +1,200 @@
+<md-dialog style="color: black">
+  <form>
+    <md-toolbar style="background-color:#34495e;">
+      <div class="md-toolbar-tools">
+        <h3 style="color: #FAFAFA;">
+          <bdi>{{vm.event}}</bdi>
+        </h3>
+        <span flex></span>
+        <md-button class="md-raised md-hue-1" ng-click="vm.register(vm.event)" aria-label="register event"
+                   ng-bind-html="vm.registerStatus" ng-if="vm.showRegister"></md-button>
+      </div>
+    </md-toolbar>
+
+
+    <md-dialog-content style="max-width:600px;max-height:610px; ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Intoduction">
+          <md-content class="md-padding">
+            <p>
+              {{vm.shortDesc}}
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Details">
+          <md-content class="md-padding">
+            <p>
+              {{vm.longDesc}}
+              <br/>
+              Furthur details <a href="{{vm.link}}" style="color: #3F51B5;" target="_blank">here.</a>
+            </p>
+          </md-content>
+        </md-tab>
+
+        <md-tab label="Rules">
+          <md-content class="md-padding">
+            <p ng-repeat="rule in vm.rules track by $index">
+              {{$index+1}}. {{rule}}
+            </p>
+          </md-content>
+        </md-tab>
+
+
+        <!--EXE-->
+        <md-tab label="Members" ng-if="vm.teamName == 'EXE'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+                <p>Ajay Negi</p>
+                <p>Arun Kumar</p>
+                <p>Dinesh</p>
+                <p>Abhinav Bhatt</p>
+                <p>Munish</p>
+                <p>Munish Juneja</p>
+                <p>Akshay Aggarwal</p>
+                <p>Ashima Anand</p>
+                <p>Nidhi Dhiman</p>
+                <p>Himanshu Bairwa</p>
+                <p>Arman Jain</p>
+
+          </md-content>
+        </md-tab>
+
+<!--ojas-->
+        <md-tab label="Members" ng-if="vm.teamName == 'OJAS'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+            <p>Sonik Sainsate</p>
+            <p>Aishwarye Rajan</p>
+            <p>Shashank Shekhar Singh</p>
+            <p>Harsh Vasishta</p>
+            <p>Jatin</p>
+            <p>Daulat Kaistha</p>
+            <p>Apoorva Apoo</p>
+            <p>Pallavi Thakur</p>
+            <p>Ashima Jindal </p>
+            <p>Raghav Sharma</p>
+            <p>Servesh Singh</p>
+            <p>Shivek</p>
+
+          </md-content>
+        </md-tab>
+
+
+        <!--C-Helix-->
+        <md-tab label="Members" ng-if="vm.teamName == 'CHELIX'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+            <p>MOHIT RATTAN</p>
+            <p>ANURAG SHARMA</p>
+            <p>RAJAT </p>
+            <p>SANDEEP SAINI</p>
+            <p>SUSHANT </p>
+            <p>SHIKHAR SRIVASTAVA</p>
+            <p>DIGVIJAY TOSAWARA</p>
+            <p>RAKESH </p>
+            <p>ARPIT MATHUR </p>
+            <p>UPENDRA SINGH TOMAR</p>
+
+
+          </md-content>
+        </md-tab>
+
+        <!--MEDEXTROUS-->
+
+
+
+        <md-tab label="Members" ng-if="vm.teamName == 'MEDEXTROUS'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+            <p>ANKUR KUMAR</p>
+            <p>SATYABH KUMAR</p>
+            <p>SAMIR ANAND</p>
+            <p>AVDHESH KUMAR</p>
+            <p>AKSHAY SHARMA </p>
+            <p>HARDEEP SINGH</p>
+            <p>AMIT</p>
+            <p>SATNAM SINGH </p>
+            <p>RAVI JANGIR </p>
+            <p>PULKIT GARG</p>
+            <p>PARMODH ATTRI</p>
+
+
+          </md-content>
+        </md-tab>
+
+
+        <!--DESIGNoCRATS-->
+
+        <md-tab label="Members" ng-if="vm.teamName == 'DESIGNoCRATS'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+           <p>Paras</p>
+           <p>Ankush Bharti</p>
+           <p>Daksh</p>
+           <p>Jackson</p>
+           <p>Archit</p>
+           <p>Akshit</p>
+           <p>Aman</p>
+           <p>Shubham</p>
+           <p>Ajay</p>
+           <p>Rajat</p>
+           <p>Micheal</p>
+           <p>Ankush Jaswal</p>
+           <p>Rohan</p>
+           <p>Kuldeep</p>
+           <p>Satvik</p>
+           <p>Barun</p>
+           <p>Rishabh </p>
+           <p>Deepak</p>
+           <p>Abhishek</p>
+           <p>Sukrit</p>
+           <p>Sumit</p>
+           <p>Shiwani</p>
+           <p>Kavita</p>
+           <p>Nikhileshwary</p>
+           <p>Jagriti</p>
+           <p>Gargi</p>
+           <p>Gunjan</p>
+           <p>Uttara</p>
+
+
+
+          </md-content>
+        </md-tab>
+
+        <!--VIBHAV-->
+
+
+        <md-tab label="Members" ng-if="vm.teamName == 'VIBHAV'">
+          <md-content class="md-padding">
+            <b>Coordinators</b>
+
+            <p>Abhinandan Jain</p>
+            <p>Anjani Kumar Chennam</p>
+            <p>Chirag Tyagi</p>
+            <p>Mahim Saxena</p>
+            <p>Mrudul P Mendke </p>
+            <p>P Sai Aravind Varma</p>
+            <p>Gunika Vashisht</p>
+            <p>Neeraj Kaushal</p>
+            <p>Nitya Garg</p>
+            <p>Sayali Mahadik</p>
+            <p>Soundary Bachu</p>
+
+
+          </md-content>
+        </md-tab>
+
+      </md-tabs>
+
+
+    </md-dialog-content>
+
+
+  </form>
+</md-dialog>

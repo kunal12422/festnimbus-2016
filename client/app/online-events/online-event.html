@@ -1,0 +1,192 @@
+<div layout="row" style="height: 100vh">
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+              md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-tall md-hue-2" style="background-color: rgb(55, 56, 62);">
+      <span flex></span>
+      <div layout="column" class="md-toolbar-tools-bottom inset">
+        <md-tooltip md-direction="bottom">
+          {{vm.UserName}}
+        </md-tooltip>
+        <md-icon ng-click="vm.showProfile()" style="width:64px;height: 64px;margin-left: 35px;cursor: pointer">
+          <svg class="user-avatar" viewBox="0 0 128 128" height="64" width="64" pointer-events="none" display="block">
+            <path fill="#FF8A80" d="M0 0h128v128H0z"></path>
+            <path fill="#FFE0B2"
+                  d="M36.3 94.8c6.4 7.3 16.2 12.1 27.3 12.4 10.7-.3 20.3-4.7 26.7-11.6l.2.1c-17-13.3-12.9-23.4-8.5-28.6 1.3-1.2 2.8-2.5 4.4-3.9l13.1-11c1.5-1.2 2.6-3 2.9-5.1.6-4.4-2.5-8.4-6.9-9.1-1.5-.2-3 0-4.3.6-.3-1.3-.4-2.7-1.6-3.5-1.4-.9-2.8-1.7-4.2-2.5-7.1-3.9-14.9-6.6-23-7.9-5.4-.9-11-1.2-16.1.7-3.3 1.2-6.1 3.2-8.7 5.6-1.3 1.2-2.5 2.4-3.7 3.7l-1.8 1.9c-.3.3-.5.6-.8.8-.1.1-.2 0-.4.2.1.2.1.5.1.6-1-.3-2.1-.4-3.2-.2-4.4.6-7.5 4.7-6.9 9.1.3 2.1 1.3 3.8 2.8 5.1l11 9.3c1.8 1.5 3.3 3.8 4.6 5.7 1.5 2.3 2.8 4.9 3.5 7.6 1.7 6.8-.8 13.4-5.4 18.4-.5.6-1.1 1-1.4 1.7-.2.6-.4 1.3-.6 2-.4 1.5-.5 3.1-.3 4.6.4 3.1 1.8 6.1 4.1 8.2 3.3 3 8 4 12.4 4.5 5.2.6 10.5.7 15.7.2 4.5-.4 9.1-1.2 13-3.4 5.6-3.1 9.6-8.9 10.5-15.2M76.4 46c.9 0 1.6.7 1.6 1.6 0 .9-.7 1.6-1.6 1.6-.9 0-1.6-.7-1.6-1.6-.1-.9.7-1.6 1.6-1.6zm-25.7 0c.9 0 1.6.7 1.6 1.6 0 .9-.7 1.6-1.6 1.6-.9 0-1.6-.7-1.6-1.6-.1-.9.7-1.6 1.6-1.6z"></path>
+            <path fill="#E0F7FA"
+                  d="M105.3 106.1c-.9-1.3-1.3-1.9-1.3-1.9l-.2-.3c-.6-.9-1.2-1.7-1.9-2.4-3.2-3.5-7.3-5.4-11.4-5.7 0 0 .1 0 .1.1l-.2-.1c-6.4 6.9-16 11.3-26.7 11.6-11.2-.3-21.1-5.1-27.5-12.6-.1.2-.2.4-.2.5-3.1.9-6 2.7-8.4 5.4l-.2.2s-.5.6-1.5 1.7c-.9 1.1-2.2 2.6-3.7 4.5-3.1 3.9-7.2 9.5-11.7 16.6-.9 1.4-1.7 2.8-2.6 4.3h109.6c-3.4-7.1-6.5-12.8-8.9-16.9-1.5-2.2-2.6-3.8-3.3-5z"></path>
+            <circle fill="#444" cx="76.3" cy="47.5" r="2"></circle>
+            <circle fill="#444" cx="50.7" cy="47.6" r="2"></circle>
+            <path fill="#444"
+                  d="M48.1 27.4c4.5 5.9 15.5 12.1 42.4 8.4-2.2-6.9-6.8-12.6-12.6-16.4C95.1 20.9 92 10 92 10c-1.4 5.5-11.1 4.4-11.1 4.4H62.1c-1.7-.1-3.4 0-5.2.3-12.8 1.8-22.6 11.1-25.7 22.9 10.6-1.9 15.3-7.6 16.9-10.2z"></path>
+          </svg>
+        </md-icon>
+
+
+        <div style="font-size: 16px">{{vm.UserEmail}}</div>
+      </div>
+    </md-toolbar>
+    <md-list style="color: black;">
+      <md-list-item style="cursor: pointer" class="md-2-line" md-ink-ripple>
+        <div class="md-list-item-text" ng-click="vm.bhramLeaderBoard()">
+          <i class="material-icons">grade</i>
+          <span class="md-body-2">LeaderBoard</span>
+        </div>
+      </md-list-item>
+      <md-list-item style="cursor: pointer" class="md-2-line" ng-repeat="item in vm.menu" role="link" md-ink-ripple>
+        <div class="md-list-item-text" ui-sref="{{item.link}}">
+          <i class="material-icons">{{item.icon}}</i>
+          <span class="md-body-2">{{item.title}}</span>
+        </div>
+      </md-list-item>
+
+
+      <md-divider></md-divider>
+      <md-subheader>Other</md-subheader>
+      <md-list-item class="md-2-line" ng-repeat="item in vm.admin" role="link" md-ink-ripple>
+        <div class="md-list-item-text" ng-click="vm.logout()">
+          <i class="material-icons">{{item.icon}}</i>
+          <span class="md-body-2">{{item.title}}</span>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+  <div layout="column" class="relative" layout-fill role="main">
+
+
+    <md-toolbar class="animate-show md-tall md-whiteframe-z1" style="background-color: rgb(55, 56, 62);">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-md aria-label="Menu">
+          <i class="material-icons">menu</i>
+        </md-button>
+        <h3>
+          BHRAM 4.0
+        </h3>
+        <span flex></span>
+
+        <div class="timeline">
+          <div class="timeline-bar">
+            <div class="timeline-point point-1" ng-class="vm.defaultLevel === 'first'? 'tomato-color':'white-color'"  data-tooltip="level1" ng-click="vm.moveToLevel('first')"></div>
+            <div class="timeline-point point-2" ng-class="vm.defaultLevel === 'second'? 'tomato-color':'white-color'"   data-tooltip="level2" ng-click="vm.moveToLevel('second')"></div>
+            <div class="timeline-point point-3" ng-class="vm.defaultLevel === 'third'? 'tomato-color':'white-color'"  data-tooltip="level3" ng-click="vm.moveToLevel('third')"></div>
+            <div class="timeline-point point-4" ng-class="vm.defaultLevel === 'fourth'? 'tomato-color':'white-color'"  data-tooltip="level4" ng-click="vm.moveToLevel('fourth')"></div>
+          </div>
+        </div>
+
+      </div>
+      <span flex></span>
+      <md-tabs md-stretch-tabs="always" md-selected="data.selectedIndex" class="bhram-tabs">
+        <md-tab id="tab1" aria-controls="tab1-content">
+          PLAY HERE
+        </md-tab>
+        <md-tab id="tab2" aria-controls="tab2-content">
+          RULES
+        </md-tab>
+      </md-tabs>
+    </md-toolbar>
+
+    <md-content flex>
+      <ui-view layout="column" layout-fill layout-padding>
+        <div class="inset" hide-sm></div>
+        <ng-switch on="data.selectedIndex" class="tabpanel-container">
+          <div role="tabpanel"
+               id="tab1-content"
+               aria-labelledby="tab1"
+               ng-switch-when="0"
+               md-swipe-left="next()"
+               md-swipe-right="previous()"
+               layout="row" layout-align="center center">
+            <div flex-gt-sm="90" flex-gt-md="80">
+              <h2 class="md-title inset">Level {{vm.defaultLevel}}</h2>
+              <md-content>
+
+
+                <md-card ng-repeat="item in vm.activity">
+
+                  <md-content layout-padding="" class="md-list-item-text">
+                    <span style="font-weight: bold">{{$index+1}}.</span>
+                    <i class="material-icons" style="color:red;font-weight: bold;"
+                       ng-hide="vm.checkIfDone( item.level, item.index) || item.level === 'fourth'">clear</i>
+                    <i class="material-icons" style="color:green;font-weight: bold;"
+                       ng-hide="!vm.checkIfDone( item.level, item.index) || item.level === 'fourth'">done</i>
+
+
+                    <p ng-repeat="question in item.question">{{question}}</p>
+                  </md-content>
+                  <md-content layout-padding="" class="md-list-item-text" ng-if="item.hints.length">
+                    <span style="font-weight: bold">Hints:</span>
+                    <p ng-repeat="hint in item.hints">
+                      <i class="material-icons">help_outline</i> &nbsp;{{hint}}
+                    </p>
+                  </md-content>
+                  <div>
+                    <md-button ng-click="showDetails = !showDetails" ng-hide="vm.checkIfDone( item.level, item.index)">
+                      <md-tooltip md-direction="bottom">
+                        submit solution
+                      </md-tooltip>
+                      <i class="material-icons">create</i>
+                    </md-button>
+
+                    <md-content class="md-no-momentum toggle-animation"
+                                ng-hide="vm.checkIfDone( item.level, item.index) || (!vm.countLeft && vm.raised_index === item.index)">
+                      <md-input-container class="md-block" ng-hide="!showDetails">
+                        <label>Answer</label>
+                        <input ng-model="vm.bhram.answer" type="text">
+                        <div ng-if="vm.raise && vm.raised_index === item.index">
+                          <div ng-bind-html="vm.response" style="color: red"></div>
+                        </div>
+                      </md-input-container>
+                      <md-button class="md-raised md-primary" ng-click="vm.postAnswer($event, item.level, item.index)">
+                        Submit
+                      </md-button>
+                    </md-content>
+
+                  </div>
+
+                  <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+                  <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+
+
+                </md-card>
+              </md-content>
+
+            </div>
+          </div>
+
+
+          <div role="tabpanel"
+               id="tab2-content"
+               aria-labelledby="tab2"
+               ng-switch-when="1"
+               md-swipe-left="next()"
+               md-swipe-right="previous()"
+               layout="row" layout-align="center center">
+            <div flex-gt-sm="90" flex-gt-md="80">
+              <h2 class="md-title inset">Rules</h2>
+              <md-card>
+
+                <md-content class="md-3-line">
+                <div class="md-list-item-text" ng-repeat="rule in vm.activity[0].rules">
+
+                  <p>{{$index + 1}}. {{rule}}</p>
+                </div>
+                <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+                <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+    </md-content>
+    <md-divider></md-divider>
+
+
+    </md-card>
+  </div>
+
+</div>
+
+</ng-switch>
+</ui-view>
+</md-content>
+
+
+</div>
+
+
+</div>

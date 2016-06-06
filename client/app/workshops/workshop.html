@@ -1,0 +1,30 @@
+<!--styles copied from guest-lectures-->
+<div class="dialog-lecture" style="display:block;">
+  <div class="layer-lecture">
+    <!--<img class="loader" src="../../assets/images/loader.gif"/>-->
+
+    <div class="nimbus-lectures">
+
+      <div class="nimbus-lectures-header" style="width: 110px">
+        <h4>WORKSHOPS</h4>
+      </div>
+      <div class="nimbus-lectures-list" ng-scrollbars>
+        <md-content ng-repeat="doc in vm.workshopList" class="scrollable-list">
+
+          <md-button class="scrollable-list-section" >
+            <a href="" >{{ doc.name }}</a>
+            <br/>
+            <i> - {{doc.by}}</i>
+          </md-button>
+
+        </md-content>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
